@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="voidGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="50%" stop-color="#1a0a0a"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <radialGradient id="bloodGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b0000" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#8b0000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.08 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="320" fill="url(#voidGrad)"/>
+  <rect width="1200" height="320" fill="url(#bloodGlow)"/>
+  <rect width="1200" height="320" filter="url(#grain)"/>
+
+  <!-- Top and bottom rules -->
+  <line x1="60" y1="40" x2="1140" y2="40" stroke="#3a0000" stroke-width="1"/>
+  <line x1="60" y1="280" x2="1140" y2="280" stroke="#3a0000" stroke-width="1"/>
+
+  <!-- Corner glyphs -->
+  <text x="60" y="32" font-family="Georgia, serif" font-size="14" fill="#5c0000" letter-spacing="4">⸸ ANNO MMXXVI ⸸</text>
+  <text x="1140" y="32" font-family="Georgia, serif" font-size="14" fill="#5c0000" text-anchor="end" letter-spacing="4">⸸ CODEX I ⸸</text>
+
+  <!-- Sigil left -->
+  <g transform="translate(180,160)" stroke="#8b0000" stroke-width="1.4" fill="none" opacity="0.85">
+    <circle r="48"/>
+    <circle r="32"/>
+    <line x1="-48" y1="0" x2="48" y2="0"/>
+    <line x1="0" y1="-48" x2="0" y2="48"/>
+    <path d="M -22 -22 L 22 22 M -22 22 L 22 -22"/>
+    <circle r="6" fill="#8b0000"/>
+  </g>
+
+  <!-- Sigil right -->
+  <g transform="translate(1020,160)" stroke="#8b0000" stroke-width="1.4" fill="none" opacity="0.85">
+    <circle r="48"/>
+    <circle r="32"/>
+    <line x1="-48" y1="0" x2="48" y2="0"/>
+    <line x1="0" y1="-48" x2="0" y2="48"/>
+    <path d="M -22 -22 L 22 22 M -22 22 L 22 -22"/>
+    <circle r="6" fill="#8b0000"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="170" font-family="UnifrakturCook, UnifrakturMaguntia, Georgia, serif" font-size="78" font-weight="900" fill="#8b0000" text-anchor="middle" letter-spacing="6" filter="url(#glow)">𝕮𝕺𝕯𝕰𝕩 𝕸𝕺𝕽𝕿𝕴𝕾</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="210" font-family="Georgia, serif" font-size="16" fill="#6b6b6b" text-anchor="middle" letter-spacing="14">— A DEVELOPER'S GRIMOIRE —</text>
+
+  <!-- Footer line -->
+  <text x="600" y="260" font-family="Courier New, monospace" font-size="12" fill="#5c0000" text-anchor="middle" letter-spacing="6">virxdxk · saint petersburg · sealed in ash</text>
+
+  <!-- Bottom corner glyphs -->
+  <text x="60" y="304" font-family="Georgia, serif" font-size="14" fill="#5c0000" letter-spacing="4">⸸ MEMENTO MORI ⸸</text>
+  <text x="1140" y="304" font-family="Georgia, serif" font-size="14" fill="#5c0000" text-anchor="end" letter-spacing="4">⸸ ARS LONGA ⸸</text>
+</svg>
