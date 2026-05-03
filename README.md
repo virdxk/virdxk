@@ -3,13 +3,13 @@
 ```
 ═══════════════════════════════════════════════════════════════════
 
-                              ⸸
+                                 ⸸
 
-                       J O H N   D E E
-                    ─────────────────────
-                  virxdxk  ·  saint petersburg
+                          J O H N   D E E
+                       ─────────────────────
+                       virxdxk · anno mmxxvi
 
-                              ⸸
+                                 ⸸
 
 ═══════════════════════════════════════════════════════════════════
 ```
@@ -26,7 +26,6 @@
 ```
 > NAME      :: John Dee
 > CIPHER    :: virxdxk
-> ANCHORED  :: Saint Petersburg
 > CRAFT     :: Software Engineer · ITMO Initiate
 > STATE     :: awake
 ```
@@ -76,6 +75,43 @@
 │                                                                │
 └────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## `// AUSPICES`
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=virxdxk&show_icons=true&hide_border=true&bg_color=0a0a0a&title_color=8b0000&icon_color=8b0000&text_color=d4d4d4&ring_color=8b0000&include_all_commits=true&count_private=true" alt="stats" height="180" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=virxdxk&layout=compact&hide_border=true&bg_color=0a0a0a&title_color=8b0000&text_color=d4d4d4&langs_count=10" alt="top languages" height="180" />
+
+<br/>
+
+<img src="https://streak-stats.demolab.com/?user=virxdxk&hide_border=true&background=0a0a0a&stroke=8b0000&ring=8b0000&fire=8b0000&currStreakLabel=8b0000&currStreakNum=d4d4d4&sideNums=d4d4d4&dates=6b6b6b&sideLabels=d4d4d4" alt="streak" />
+
+<br/>
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=virxdxk&bg_color=0a0a0a&color=8b0000&line=8b0000&point=d4d4d4&area=true&area_color=5c0000&hide_border=true&custom_title=ACTIVITUM%20VESTIGIA" alt="activity graph" />
+
+<br/>
+
+<img src="https://github-profile-trophy.vercel.app/?username=virxdxk&theme=darkhub&no-frame=true&no-bg=true&column=4&margin-w=15&margin-h=15&title_color=8b0000&text_color=d4d4d4" alt="trophies" />
+
+<br/>
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=virxdxk&theme=github_dark" alt="profile details" />
+
+<br/>
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=virxdxk&theme=github_dark" alt="repos per language" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=virxdxk&theme=github_dark" alt="most committed language" />
+
+<br/>
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=virxdxk&theme=github_dark&utcOffset=3" alt="productive time" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=virxdxk&theme=github_dark" alt="stats summary" />
+
+</div>
 
 ---
 
