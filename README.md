@@ -191,7 +191,6 @@
 
 [![Email](https://img.shields.io/badge/-correspondence-0a0a0a?style=for-the-badge&logo=protonmail&logoColor=8b0000&labelColor=0a0a0a)](mailto:didzon87@gmail.com)
 [![GitHub](https://img.shields.io/badge/-archive-0a0a0a?style=for-the-badge&logo=github&logoColor=8b0000&labelColor=0a0a0a)](https://github.com/virdxk)
-[![Telegram](https://img.shields.io/badge/-signal-0a0a0a?style=for-the-badge&logo=telegram&logoColor=8b0000&labelColor=0a0a0a)](https://t.me/)
 
 </div>
 
