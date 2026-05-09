@@ -1,8 +1,8 @@
-name: Generate Snake
+name: Generate Assets
 
 on:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 */6 * * *"
   workflow_dispatch:
   push:
     branches:
@@ -22,6 +22,62 @@ jobs:
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark&color_snake=#8b0000&color_dots=#161616,#5c0000,#8b0000,#b00000,#ff0000
+
+      - name: Render stats radar SVG
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          DATA=$(gh api graphql -f query='
+            query {
+              user(login: "virdxk") {
+                contributionsCollection {
+                  totalCommitContributions
+                  totalIssueContributions
+                  totalPullRequestContributions
+                  totalPullRequestReviewContributions
+                }
+              }
+            }')
+          C=$(echo "$DATA" | jq -r '.data.user.contributionsCollection.totalCommitContributions')
+          I=$(echo "$DATA" | jq -r '.data.user.contributionsCollection.totalIssueContributions')
+          P=$(echo "$DATA" | jq -r '.data.user.contributionsCollection.totalPullRequestContributions')
+          R=$(echo "$DATA" | jq -r '.data.user.contributionsCollection.totalPullRequestReviewContributions')
+          T=$((C + I + P + R))
+          [ $T -eq 0 ] && T=1
+          PC=$(awk "BEGIN{printf \"%d\", ${C}*100/${T}}")
+          PI=$(awk "BEGIN{printf \"%d\", ${I}*100/${T}}")
+          PP=$(awk "BEGIN{printf \"%d\", ${P}*100/${T}}")
+          PR=$(awk "BEGIN{printf \"%d\", ${R}*100/${T}}")
+          LX=$(awk "BEGIN{printf \"%.1f\", 400 - 130*${PC}/100}")
+          RX=$(awk "BEGIN{printf \"%.1f\", 400 + 130*${PI}/100}")
+          TY=$(awk "BEGIN{printf \"%.1f\", 200 - 130*${PR}/100}")
+          BY=$(awk "BEGIN{printf \"%.1f\", 200 + 130*${PP}/100}")
+          mkdir -p dist
+          cat > dist/stats-radar.svg <<SVG
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+            <rect width="800" height="400" fill="#0a0a0a"/>
+            <line x1="400" y1="60" x2="400" y2="340" stroke="#5c0000" stroke-width="1.5"/>
+            <line x1="120" y1="200" x2="680" y2="200" stroke="#5c0000" stroke-width="1.5"/>
+            <polygon points="400,135 465,200 400,265 335,200" fill="none" stroke="#5c0000" stroke-width="0.5" opacity="0.4"/>
+            <polygon points="400,108 492,200 400,292 308,200" fill="none" stroke="#5c0000" stroke-width="0.5" opacity="0.4"/>
+            <polygon points="400,80 520,200 400,320 280,200" fill="none" stroke="#5c0000" stroke-width="0.5" opacity="0.4"/>
+            <polygon points="${LX},200 400,${TY} ${RX},200 400,${BY}" fill="#8b0000" fill-opacity="0.35" stroke="#8b0000" stroke-width="2"/>
+            <circle cx="${LX}" cy="200" r="5" fill="#8b0000" stroke="#d4d4d4" stroke-width="1.5"/>
+            <circle cx="400" cy="${TY}" r="5" fill="#8b0000" stroke="#d4d4d4" stroke-width="1.5"/>
+            <circle cx="${RX}" cy="200" r="5" fill="#8b0000" stroke="#d4d4d4" stroke-width="1.5"/>
+            <circle cx="400" cy="${BY}" r="5" fill="#8b0000" stroke="#d4d4d4" stroke-width="1.5"/>
+            <text x="80" y="195" fill="#d4d4d4" font-family="-apple-system, Segoe UI, sans-serif" font-size="15" text-anchor="middle" font-weight="600">${PC}%</text>
+            <text x="80" y="215" fill="#888" font-family="-apple-system, Segoe UI, sans-serif" font-size="13" text-anchor="middle">Commits</text>
+            <text x="720" y="195" fill="#d4d4d4" font-family="-apple-system, Segoe UI, sans-serif" font-size="15" text-anchor="middle" font-weight="600">${PI}%</text>
+            <text x="720" y="215" fill="#888" font-family="-apple-system, Segoe UI, sans-serif" font-size="13" text-anchor="middle">Issues</text>
+            <text x="400" y="40" fill="#d4d4d4" font-family="-apple-system, Segoe UI, sans-serif" font-size="15" text-anchor="middle" font-weight="600">${PR}%</text>
+            <text x="400" y="58" fill="#888" font-family="-apple-system, Segoe UI, sans-serif" font-size="13" text-anchor="middle">Code review</text>
+            <text x="400" y="365" fill="#d4d4d4" font-family="-apple-system, Segoe UI, sans-serif" font-size="15" text-anchor="middle" font-weight="600">${PP}%</text>
+            <text x="400" y="385" fill="#888" font-family="-apple-system, Segoe UI, sans-serif" font-size="13" text-anchor="middle">Pull requests</text>
+          </svg>
+          SVG
+          ls -la dist/
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v4

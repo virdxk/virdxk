@@ -31,4 +31,8 @@
 
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=virdxk&layout=compact&hide_border=true&bg_color=0a0a0a&title_color=8b0000&text_color=d4d4d4&langs_count=8" alt="" height="160" />
 
+<br/><br/>
+
+<img src="https://raw.githubusercontent.com/virdxk/virdxk/output/stats-radar.svg" alt="" />
+
 </div>
